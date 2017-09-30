@@ -10,8 +10,6 @@ import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.TypeElement;
 import javax.tools.Diagnostic;
 import javax.tools.FileObject;
-import javax.tools.StandardLocation;
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Writer;
 import java.lang.annotation.Annotation;
@@ -35,8 +33,7 @@ public class PreferenceProcessor extends AbstractProcessor {
 
     private static Messager sMessager;
     private Filer mFiler;
-    private BufferedReader mConfigReader;
-    private String mPkgName = "com";
+    private String mPkgName;
     private Map<String, PreferenceTemplate> mPrefs;
     private boolean mHasProcessed;
 
@@ -46,32 +43,6 @@ public class PreferenceProcessor extends AbstractProcessor {
         mFiler = processingEnv.getFiler();
         sMessager = processingEnv.getMessager();
         mPrefs = new HashMap<>();
-        try {
-            FileObject config = mFiler.getResource(StandardLocation.SOURCE_PATH, "", "pref-annotation-config.conf");
-            mConfigReader = new BufferedReader(config.openReader(true));
-            int line = 1;
-            String pkg = mConfigReader.readLine();
-            while (pkg == null || "".equals(pkg.trim())) {
-                ++line;
-                pkg = mConfigReader.readLine();
-                if (!pkg.trim().startsWith("package:")) {
-                    pkg = null;
-                    break;
-                }
-            }
-            debug(null, "got package name " + pkg);
-            if (pkg != null) {
-                mPkgName = pkg;
-            } else {
-                //todo test
-                mConfigReader.reset();
-                for (int i = 0; i < line; ++i) {
-                    mConfigReader.readLine();
-                }
-            }
-        } catch (IOException e1) {
-//            e1.printStackTrace();
-        }
     }
 
     @Override
@@ -82,6 +53,13 @@ public class PreferenceProcessor extends AbstractProcessor {
         for (Element rootClass : roundEnv.getElementsAnnotatedWith(PreferenceAnnotation.class)) {
             if (rootClass == null || rootClass.getKind() != ElementKind.CLASS) {
                 continue;
+            }
+            PreferenceAnnotation rootPref = rootClass.getAnnotation(PreferenceAnnotation.class);
+            if (mPkgName == null) {
+                mPkgName = rootPref.prefPackage();
+            }
+            if (!rootPref.prefPackage().equals(mPkgName)) {
+                exception("all PreferenceAnnotation#prefPackage should be the same");
             }
             List<? extends Element> elements = rootClass.getEnclosedElements();
             for (Element field : elements) {
@@ -97,29 +75,6 @@ public class PreferenceProcessor extends AbstractProcessor {
                 }
                 gen((TypeElement) rootClass, field, annotation);
             }
-        }
-        try {
-            if (mConfigReader != null) {
-                String line = mConfigReader.readLine();
-                while (line != null) {
-                    String[] parts = line.split(",");
-                    if (parts.length == 4) {
-                        Annotation annotation = null;
-                        switch (parts[3]) {
-                            case "boolean":
-                                annotation = buildBooleanPreference(parts);
-                                break;
-                            case "float":
-                                annotation = buildFloatPreference(parts);
-                                break;
-                        }
-                        gen(null, null, annotation);
-                    }
-                    line = mConfigReader.readLine();
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
         writeToFile();
         mHasProcessed = true;
@@ -145,57 +100,6 @@ public class PreferenceProcessor extends AbstractProcessor {
                 e.printStackTrace();
             }
         }
-    }
-
-    private FloatPreference buildFloatPreference(final String[] parts) {
-        return new FloatPreference() {
-
-            @Override
-            public Class<? extends Annotation> annotationType() {
-                return FloatPreference.class;
-            }
-
-            @Override
-            public String prefName() {
-                return parts[0];
-            }
-
-            @Override
-            public String key() {
-                return parts[1];
-            }
-
-            @Override
-            public float def() {
-                return Float.valueOf(parts[2]);
-            }
-        };
-
-    }
-
-    private BooleanPreference buildBooleanPreference(final String[] parts) {
-        return new BooleanPreference() {
-
-            @Override
-            public Class<? extends Annotation> annotationType() {
-                return BooleanPreference.class;
-            }
-
-            @Override
-            public String prefName() {
-                return parts[0];
-            }
-
-            @Override
-            public String key() {
-                return parts[1];
-            }
-
-            @Override
-            public boolean def() {
-                return Boolean.valueOf(parts[2]);
-            }
-        };
     }
 
     private void initPref(String prefName) {
