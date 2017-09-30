@@ -1,11 +1,14 @@
 package gt.tools.preference.annotation;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ProviderContext<T> {
-    private IProvider<T> mProvider;
+    private Map<String, T> mProvider = new HashMap<>();
 
     private static ProviderContext sInstance;
 
-    public static <T> void init(IProvider<T> provider) {
+    public static <T> void init(Map<String, T> provider) {
         sInstance = new ProviderContext();
         sInstance.mProvider = provider;
     }
