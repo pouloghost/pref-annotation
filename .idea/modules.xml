@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/pref-annotation.iml" filepath="$PROJECT_DIR$/.idea/pref-annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pref-annotation.iml" filepath="$PROJECT_DIR$/pref-annotation.iml" />
     </modules>
   </component>
 </project>
