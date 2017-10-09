@@ -1,6 +1,6 @@
 package gt.tools.preference.annotation;
 
-public @interface GsonPreference {
+public @interface JsonPreference {
     String prefName() default "";
 
     String key() default "";

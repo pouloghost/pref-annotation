@@ -18,7 +18,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-@SupportedAnnotationTypes({"gt.tools.preference.annotation.PreferenceAnnotation", "gt.tools.preference.annotation.BooleanPreference", "gt.tools.preference.annotation.FloatPreference"})
+@SupportedAnnotationTypes({
+        "gt.tools.preference.annotation.PreferenceAnnotation",
+        "gt.tools.preference.annotation.PreferenceConfig",
+        "gt.tools.preference.annotation.BooleanPreference",
+        "gt.tools.preference.annotation.FloatPreference",
+        "gt.tools.preference.annotation.IntPreference",
+        "gt.tools.preference.annotation.JsonPreference",
+        "gt.tools.preference.annotation.StringPreference",
+        "gt.tools.preference.annotation.LongPreference"})
 @SupportedSourceVersion(SourceVersion.RELEASE_7)
 public class PreferenceProcessor extends AbstractProcessor {
     private static final Map<Class<? extends Annotation>, GenVisitor> sVisiters = new HashMap<>();
@@ -29,7 +37,7 @@ public class PreferenceProcessor extends AbstractProcessor {
         sVisiters.put(IntPreference.class, new IntVisitor());
         sVisiters.put(LongPreference.class, new LongVisitor());
         sVisiters.put(StringPreference.class, new StringVisitor());
-        sVisiters.put(GsonPreference.class, new JsonVisitor());
+        sVisiters.put(JsonPreference.class, new JsonVisitor());
     }
 
     private static Messager sMessager;
@@ -51,16 +59,17 @@ public class PreferenceProcessor extends AbstractProcessor {
         if (mHasProcessed) {
             return true;
         }
+        Set<? extends Element> configs = roundEnv.getElementsAnnotatedWith(PreferenceConfig.class);
+        if (configs.size() > 1) {
+            exception("only one PreferenceConfig is allowed");
+            return true;
+        }
+        if (configs.size() != 0) {
+            mPkgName = configs.toArray(new Element[0])[0].getAnnotation(PreferenceConfig.class).prefPackage();
+        }
         for (Element rootClass : roundEnv.getElementsAnnotatedWith(PreferenceAnnotation.class)) {
             if (rootClass == null || rootClass.getKind() != ElementKind.CLASS) {
                 continue;
-            }
-            PreferenceAnnotation rootPref = rootClass.getAnnotation(PreferenceAnnotation.class);
-            if (mPkgName == null) {
-                mPkgName = rootPref.prefPackage();
-            }
-            if (!rootPref.prefPackage().equals(mPkgName)) {
-                exception("all PreferenceAnnotation#prefPackage should be the same");
             }
             List<? extends Element> elements = rootClass.getEnclosedElements();
             for (Element field : elements) {
