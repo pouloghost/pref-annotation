@@ -24,11 +24,12 @@ public class PreferenceProcessor extends AbstractProcessor {
     private static final Map<Class<? extends Annotation>, GenVisitor> sVisiters = new HashMap<>();
 
     static {
-        sVisiters.put(BooleanPreference.class, new BooleanVisiter());
+        sVisiters.put(BooleanPreference.class, new BooleanVisitor());
         sVisiters.put(FloatPreference.class, new FloatVisitor());
         sVisiters.put(IntPreference.class, new IntVisitor());
         sVisiters.put(LongPreference.class, new LongVisitor());
         sVisiters.put(StringPreference.class, new StringVisitor());
+        sVisiters.put(GsonPreference.class, new JsonVisitor());
     }
 
     private static Messager sMessager;

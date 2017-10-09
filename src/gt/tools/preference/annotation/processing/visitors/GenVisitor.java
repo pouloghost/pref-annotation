@@ -40,7 +40,7 @@ public abstract class GenVisitor<A> {
         }
     }
 
-    protected abstract void appendGetterSetter(StringBuilder builder, String key, A annotation);
+    protected abstract void appendGetterSetter(StringBuilder getterSetter, StringBuilder imports, Element field, String key, A annotation);
 
     protected void appendSaver(PreferenceTemplate pref, TypeElement root, Element field, String key) {
         if (root == null) {
@@ -60,7 +60,7 @@ public abstract class GenVisitor<A> {
     public void visit(PreferenceTemplate template, TypeElement root, Element field, Annotation annotation) {
         String key = buildPrefKey(field, getAnnotationKey((A) annotation));
         checkKey(template.mGetterSetters, key);
-        appendGetterSetter(template.mGetterSetters, key, (A) annotation);
+        appendGetterSetter(template.mGetterSetters, template.mImports, field, key, (A) annotation);
         appendSaver(template, root, field, key);
     }
 
