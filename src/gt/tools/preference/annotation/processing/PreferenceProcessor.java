@@ -25,7 +25,7 @@ import java.util.Set;
         "gt.tools.preference.annotation.FloatPreference",
         "gt.tools.preference.annotation.IntPreference",
         "gt.tools.preference.annotation.JsonPreference",
-        "gt.tools.preference.annotation.StringPreference",
+        "gt.tools.preference.annotation.ObjectPreference",
         "gt.tools.preference.annotation.LongPreference"})
 @SupportedSourceVersion(SourceVersion.RELEASE_7)
 public class PreferenceProcessor extends AbstractProcessor {
@@ -37,7 +37,7 @@ public class PreferenceProcessor extends AbstractProcessor {
         sVisiters.put(IntPreference.class, new IntVisitor());
         sVisiters.put(LongPreference.class, new LongVisitor());
         sVisiters.put(StringPreference.class, new StringVisitor());
-        sVisiters.put(JsonPreference.class, new JsonVisitor());
+        sVisiters.put(ObjectPreference.class, new ObjectVisitor());
     }
 
     private static Messager sMessager;
@@ -61,7 +61,7 @@ public class PreferenceProcessor extends AbstractProcessor {
         }
         Set<? extends Element> configs = roundEnv.getElementsAnnotatedWith(PreferenceConfig.class);
         if (configs.size() > 1) {
-            exception("only one PreferenceConfig is allowed");
+            exception("only one PreferenceConfig is allowed", null);
             return true;
         }
         if (configs.size() != 0) {
@@ -93,7 +93,7 @@ public class PreferenceProcessor extends AbstractProcessor {
 
     private void gen(TypeElement rootClass, Element field, Annotation annotation) {
         GenVisitor visitor = sVisiters.get(annotation.getClass().getInterfaces()[0]);
-        String prefName = visitor.getPrefName(annotation);
+        String prefName = visitor.getPrefFile(annotation);
         prefName = "".equals(prefName) ? "DefaultPrefHelper" : prefName;
         initPref(prefName);
         mPrefs.get(prefName).accept(visitor, rootClass, field, annotation);
@@ -128,8 +128,8 @@ public class PreferenceProcessor extends AbstractProcessor {
         sMessager.printMessage(Diagnostic.Kind.WARNING, String.format(msg, args), e);
     }
 
-    public static void exception(String s) {
-        sMessager.printMessage(Diagnostic.Kind.ERROR, s, null);
+    public static void exception(String s, Element element) {
+        sMessager.printMessage(Diagnostic.Kind.ERROR, s, element);
         throw new IllegalArgumentException(s);
     }
 }

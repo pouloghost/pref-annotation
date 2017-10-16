@@ -6,12 +6,15 @@ import javax.lang.model.element.Element;
 
 public class FloatVisitor extends GenVisitor<FloatPreference> {
     @Override
-    protected void appendGetterSetter(StringBuilder getterSetter, StringBuilder imports, Element field, String key, FloatPreference annotation) {
+    protected void appendGetterSetter(StringBuilder getterSetter, StringBuilder imports,
+                                      Element field, String key, String prefixedKey, FloatPreference annotation) {
         getterSetter.append("  public static float get").append(key).append("(){\n");
-        getterSetter.append("    return sPreferences.getFloat(\"").append(key).append("\", ").append(annotation.def()).append("F);");
+        getterSetter.append("    return sPreferences.getFloat(").append(prefixedKey).append(", ")
+                .append(annotation.def()).append("F);");
         getterSetter.append("\n  }\n");
-        getterSetter.append("  public static void set").append(key).append("(float value){\n").
-                append("    sPreferences.edit().putFloat(\"").append(key).append("\", value).apply();\n  }\n");
+        getterSetter.append("  public static void set").append(key).append("(float value){\n")
+                .append("    sPreferences.edit().putFloat(").append(prefixedKey)
+                .append(", value).apply();\n  }\n");
     }
 
     @Override
@@ -20,7 +23,18 @@ public class FloatVisitor extends GenVisitor<FloatPreference> {
     }
 
     @Override
-    public String getPrefName(FloatPreference annotation) {
-        return annotation.prefName();
+    public String getPrefFile(FloatPreference annotation) {
+        return annotation.prefFile();
+    }
+
+    @Override
+    public String getPrefixKey(FloatPreference annotation) {
+        return annotation.prefixKey();
+    }
+
+    @Override
+    public String[] acceptableFieldTypes() {
+        return new String[] {TYPE_FLOAT};
     }
 }
+

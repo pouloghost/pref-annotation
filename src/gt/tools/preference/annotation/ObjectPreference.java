@@ -7,13 +7,11 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.FIELD)
-public @interface LongPreference {
+public @interface ObjectPreference {
     String prefFile() default "";
 
     String key() default "";
 
     String prefixKey() default "";
 
-    long def() default 0L;
 }
-
