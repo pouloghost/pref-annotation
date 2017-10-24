@@ -22,7 +22,7 @@ public abstract class GenVisitor<A> {
     protected final String buildPrefKey(A annotation, String key) {
         String prefix = getPrefixKey(annotation);
         if ("".equals(prefix)) {
-            return key;
+            return "\"" + key + "\"";
         }
         StringBuilder builder = new StringBuilder();
         builder.append("PreferenceContext.getPreferenceKeyPrefix(\"")
