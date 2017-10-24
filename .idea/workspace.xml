@@ -2,26 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c27faf65-51c6-4659-830e-b39db11970fc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gt/tools/preference/annotation/ObjectPreference.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gt/tools/preference/annotation/PreferenceAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gt/tools/preference/annotation/PreferenceContext.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/gt/tools/preference/annotation/JsonPreference.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/gt/tools/preference/annotation/Jsons.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/gt/tools/preference/annotation/ProviderContext.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/JsonVisitor.java" afterPath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/ObjectVisitor.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/gt/tools/preference/annotation/PreferenceConfig.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gt/tools/preference/annotation/BooleanPreference.java" afterPath="$PROJECT_DIR$/src/gt/tools/preference/annotation/BooleanPreference.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gt/tools/preference/annotation/FloatPreference.java" afterPath="$PROJECT_DIR$/src/gt/tools/preference/annotation/FloatPreference.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gt/tools/preference/annotation/IntPreference.java" afterPath="$PROJECT_DIR$/src/gt/tools/preference/annotation/IntPreference.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gt/tools/preference/annotation/LongPreference.java" afterPath="$PROJECT_DIR$/src/gt/tools/preference/annotation/LongPreference.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gt/tools/preference/annotation/StringPreference.java" afterPath="$PROJECT_DIR$/src/gt/tools/preference/annotation/StringPreference.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/PreferenceProcessor.java" afterPath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/PreferenceProcessor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/BooleanVisitor.java" afterPath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/BooleanVisitor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/FloatVisitor.java" afterPath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/FloatVisitor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/GenVisitor.java" afterPath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/GenVisitor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/IntVisitor.java" afterPath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/IntVisitor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/LongVisitor.java" afterPath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/LongVisitor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/StringVisitor.java" afterPath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/StringVisitor.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,7 +21,7 @@
         <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/ObjectVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="44">
-              <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -49,8 +32,8 @@
       <file leaf-file-name="StringVisitor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/StringVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+            <state relative-caret-position="330">
+              <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -68,21 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PreferenceConfig.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/PreferenceConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="BooleanVisitor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/BooleanVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+            <state relative-caret-position="396">
+              <caret line="20" column="16" lean-forward="false" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,8 +66,8 @@
       <file leaf-file-name="FloatVisitor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/FloatVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="682">
-              <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+            <state relative-caret-position="638">
+              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -105,7 +78,7 @@
       <file leaf-file-name="IntVisitor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/IntVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
+            <state relative-caret-position="616">
               <caret line="38" column="1" lean-forward="false" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -117,8 +90,8 @@
       <file leaf-file-name="LongVisitor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/LongVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="858">
-              <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+            <state relative-caret-position="638">
+              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1029#1030#0" expanded="true" />
@@ -137,8 +110,8 @@
       <file leaf-file-name="GenVisitor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/GenVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1342">
-              <caret line="61" column="37" lean-forward="true" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="37" />
+            <state relative-caret-position="1188">
+              <caret line="61" column="37" lean-forward="false" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -146,11 +119,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PreferenceProcessor.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PreferenceProcessor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/PreferenceProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="710">
-              <caret line="63" column="66" lean-forward="false" selection-start-line="63" selection-start-column="66" selection-end-line="63" selection-end-column="66" />
+            <state relative-caret-position="2153">
+              <caret line="114" column="32" lean-forward="false" selection-start-line="114" selection-start-column="32" selection-end-line="114" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -203,12 +176,12 @@
         <option value="$PROJECT_DIR$/src/gt/tools/preference/annotation/StringPreference.java" />
         <option value="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/BooleanVisitor.java" />
         <option value="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/GenVisitor.java" />
-        <option value="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/PreferenceProcessor.java" />
         <option value="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/FloatVisitor.java" />
         <option value="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/IntVisitor.java" />
         <option value="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/LongVisitor.java" />
         <option value="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/ObjectVisitor.java" />
         <option value="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/StringVisitor.java" />
+        <option value="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/PreferenceProcessor.java" />
       </list>
     </option>
   </component>
@@ -233,8 +206,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -333,7 +304,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -533,7 +506,6 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297362" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -545,6 +517,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297362" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -561,6 +534,108 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/ObjectVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/StringVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/PreferenceAnnotation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/BooleanVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/FloatVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/IntVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="38" column="1" lean-forward="false" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/LongVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1029#1030#0" expanded="true" />
+            <element signature="e#1068#1069#0" expanded="true" />
+            <element signature="e#1142#1143#0" expanded="true" />
+            <element signature="e#1186#1187#0" expanded="true" />
+            <element signature="e#1261#1262#0" expanded="true" />
+            <element signature="e#1306#1307#0" expanded="true" />
+            <element signature="e#1366#1367#0" expanded="true" />
+            <element signature="e#1413#1414#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/GenVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1188">
+          <caret line="61" column="37" lean-forward="true" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/PreferenceProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1034">
+          <caret line="63" column="66" lean-forward="false" selection-start-line="63" selection-start-column="66" selection-end-line="63" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/PreferenceConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/ObjectVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
           <folding>
@@ -569,14 +644,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/Jsons.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="7" column="24" lean-forward="false" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/Jsons.java" />
     <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/PreferenceProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1518">
@@ -616,14 +684,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/IProvider.java" />
-    <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/Jsons.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="7" column="24" lean-forward="false" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/Jsons.java" />
     <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/PreferenceAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -703,18 +764,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/PreferenceProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="710">
-          <caret line="63" column="66" lean-forward="false" selection-start-line="63" selection-start-column="66" selection-end-line="63" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/GenVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1342">
-          <caret line="61" column="37" lean-forward="true" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="37" />
+        <state relative-caret-position="1188">
+          <caret line="61" column="37" lean-forward="false" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -723,8 +776,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/BooleanVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+        <state relative-caret-position="396">
+          <caret line="20" column="16" lean-forward="false" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -733,8 +786,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/FloatVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        <state relative-caret-position="638">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -743,7 +796,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/IntVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
+        <state relative-caret-position="616">
           <caret line="38" column="1" lean-forward="false" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -753,8 +806,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/LongVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        <state relative-caret-position="638">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1029#1030#0" expanded="true" />
@@ -772,7 +825,7 @@
     <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/ObjectVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -781,8 +834,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/StringVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        <state relative-caret-position="330">
+          <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -801,6 +854,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/PreferenceProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2153">
+          <caret line="114" column="32" lean-forward="false" selection-start-line="114" selection-start-column="32" selection-end-line="114" selection-end-column="32" />
           <folding />
         </state>
       </provider>

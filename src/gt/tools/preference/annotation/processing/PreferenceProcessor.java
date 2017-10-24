@@ -20,7 +20,6 @@ import java.util.Set;
 
 @SupportedAnnotationTypes({
         "gt.tools.preference.annotation.PreferenceAnnotation",
-        "gt.tools.preference.annotation.PreferenceConfig",
         "gt.tools.preference.annotation.BooleanPreference",
         "gt.tools.preference.annotation.FloatPreference",
         "gt.tools.preference.annotation.IntPreference",
@@ -30,6 +29,7 @@ import java.util.Set;
 @SupportedSourceVersion(SourceVersion.RELEASE_7)
 public class PreferenceProcessor extends AbstractProcessor {
     private static final Map<Class<? extends Annotation>, GenVisitor> sVisiters = new HashMap<>();
+    public static final String PACKAGE_NAME = "preferencePackage";
 
     static {
         sVisiters.put(BooleanPreference.class, new BooleanVisitor());
@@ -52,20 +52,13 @@ public class PreferenceProcessor extends AbstractProcessor {
         mFiler = processingEnv.getFiler();
         sMessager = processingEnv.getMessager();
         mPrefs = new HashMap<>();
+        mPkgName = processingEnv.getOptions().get(PACKAGE_NAME);
     }
 
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         if (mHasProcessed) {
             return true;
-        }
-        Set<? extends Element> configs = roundEnv.getElementsAnnotatedWith(PreferenceConfig.class);
-        if (configs.size() > 1) {
-            exception("only one PreferenceConfig is allowed", null);
-            return true;
-        }
-        if (configs.size() != 0) {
-            mPkgName = configs.toArray(new Element[0])[0].getAnnotation(PreferenceConfig.class).prefPackage();
         }
         for (Element rootClass : roundEnv.getElementsAnnotatedWith(PreferenceAnnotation.class)) {
             if (rootClass == null || rootClass.getKind() != ElementKind.CLASS) {
@@ -119,7 +112,7 @@ public class PreferenceProcessor extends AbstractProcessor {
         StringBuilder whole = new StringBuilder();
         whole.
                 append("public final class ").append(prefName).append("{\n").
-                append("  private static SharedPreferences sPreferences = (SharedPreferences)ProviderContext.getInstance().get(\"").append(prefName).append("\");\n");
+                append("  public static SharedPreferences sPreferences = (SharedPreferences)ProviderContext.getInstance().get(\"").append(prefName).append("\");\n");
         PreferenceTemplate template = new PreferenceTemplate(whole.toString());
         mPrefs.put(prefName, template);
     }
