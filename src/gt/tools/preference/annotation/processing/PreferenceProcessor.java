@@ -64,19 +64,21 @@ public class PreferenceProcessor extends AbstractProcessor {
             if (rootClass == null || rootClass.getKind() != ElementKind.CLASS) {
                 continue;
             }
+            PreferenceAnnotation annotation = rootClass.getAnnotation(PreferenceAnnotation.class);
+            boolean needSaver = annotation.generateSaver();
             List<? extends Element> elements = rootClass.getEnclosedElements();
             for (Element field : elements) {
                 if (field == null || field.getKind() != ElementKind.FIELD) {
                     continue;
                 }
-                Annotation annotation = null;
+                Annotation fieldAnnotation = null;
                 for (Class<? extends Annotation> annotationClass : sVisiters.keySet()) {
-                    annotation = field.getAnnotation(annotationClass);
-                    if (annotation != null) {
+                    fieldAnnotation = field.getAnnotation(annotationClass);
+                    if (fieldAnnotation != null) {
                         break;
                     }
                 }
-                gen((TypeElement) rootClass, field, annotation);
+                gen((TypeElement) rootClass, field, fieldAnnotation, needSaver);
             }
         }
         writeToFile();
@@ -84,12 +86,12 @@ public class PreferenceProcessor extends AbstractProcessor {
         return true;
     }
 
-    private void gen(TypeElement rootClass, Element field, Annotation annotation) {
+    private void gen(TypeElement rootClass, Element field, Annotation annotation, boolean needSaver) {
         GenVisitor visitor = sVisiters.get(annotation.getClass().getInterfaces()[0]);
         String prefName = visitor.getPrefFile(annotation);
         prefName = "".equals(prefName) ? "DefaultPrefHelper" : prefName;
         initPref(prefName);
-        mPrefs.get(prefName).accept(visitor, rootClass, field, annotation);
+        mPrefs.get(prefName).accept(visitor, rootClass, field, annotation, needSaver);
     }
 
     private void writeToFile() {
