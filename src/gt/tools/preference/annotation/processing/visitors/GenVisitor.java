@@ -84,7 +84,7 @@ public abstract class GenVisitor<A> {
     }
 
     public void visit(PreferenceTemplate template, TypeElement root, Element field,
-                      Annotation annotation) {
+                      Annotation annotation, boolean needSaver) {
         checkType(field);
         String key = getAnnotationKey((A) annotation);
         String pureKey = formatKey(field, key);
@@ -92,7 +92,9 @@ public abstract class GenVisitor<A> {
         checkKey(template.mGetterSetters, pureKey);
         appendGetterSetter(template.mGetterSetters, template.mImports, field, pureKey, prefixedKey,
                 (A) annotation);
-        appendSaver(template, root, field, pureKey);
+        if (needSaver) {
+            appendSaver(template, root, field, pureKey);
+        }
     }
 
     private void checkType(Element field) {

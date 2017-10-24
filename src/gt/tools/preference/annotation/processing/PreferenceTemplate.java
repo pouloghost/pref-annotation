@@ -20,8 +20,8 @@ public class PreferenceTemplate {
         mClass = clazz;
     }
 
-    public void accept(GenVisitor visitor, TypeElement root, Element field, Annotation annotation) {
-        visitor.visit(this, root, field, annotation);
+    public void accept(GenVisitor visitor, TypeElement root, Element field, Annotation annotation, boolean needSaver) {
+        visitor.visit(this, root, field, annotation, needSaver);
     }
 
     public String toString(String pkg) {
