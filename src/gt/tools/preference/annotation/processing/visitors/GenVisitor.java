@@ -20,9 +20,13 @@ public abstract class GenVisitor<A> {
             Arrays.asList(TYPE_BOOLEAN, TYPE_FLOAT, TYPE_INT, TYPE_LONG, TYPE_STRING);
 
     protected final String buildPrefKey(A annotation, String key) {
+        String prefix = getPrefixKey(annotation);
+        if ("".equals(prefix)) {
+            return key;
+        }
         StringBuilder builder = new StringBuilder();
         builder.append("PreferenceContext.getPreferenceKeyPrefix(\"")
-                .append(getPrefixKey(annotation))
+                .append(prefix)
                 .append("\") + \"")
                 .append(key)
                 .append("\"");

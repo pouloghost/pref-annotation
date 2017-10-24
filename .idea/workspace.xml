@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c27faf65-51c6-4659-830e-b39db11970fc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gt/tools/preference/annotation/PreferenceAnnotation.java" afterPath="$PROJECT_DIR$/src/gt/tools/preference/annotation/PreferenceAnnotation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/PreferenceProcessor.java" afterPath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/PreferenceProcessor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/PreferenceTemplate.java" afterPath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/PreferenceTemplate.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/GenVisitor.java" afterPath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/GenVisitor.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -113,8 +110,8 @@
       <file leaf-file-name="GenVisitor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/GenVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="930">
-              <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+            <state relative-caret-position="682">
+              <caret line="31" column="30" lean-forward="true" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -876,8 +873,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/GenVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+        <state relative-caret-position="682">
+          <caret line="31" column="30" lean-forward="true" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
