@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c27faf65-51c6-4659-830e-b39db11970fc" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/gt/tools/preference/annotation/PreferenceConfig.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/PreferenceProcessor.java" afterPath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/PreferenceProcessor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/GenVisitor.java" afterPath="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/GenVisitor.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -107,11 +105,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GenVisitor.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GenVisitor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/GenVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1188">
-              <caret line="61" column="37" lean-forward="false" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="37" />
+            <state relative-caret-position="1700">
+              <caret line="90" column="88" lean-forward="false" selection-start-line="90" selection-start-column="88" selection-end-line="90" selection-end-column="88" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -119,11 +117,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PreferenceProcessor.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PreferenceProcessor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/PreferenceProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2153">
-              <caret line="114" column="32" lean-forward="false" selection-start-line="114" selection-start-column="32" selection-end-line="114" selection-end-column="32" />
+            <state relative-caret-position="1867">
+              <caret line="101" column="37" lean-forward="true" selection-start-line="101" selection-start-column="37" selection-end-line="101" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -175,13 +173,13 @@
         <option value="$PROJECT_DIR$/src/gt/tools/preference/annotation/JsonPreference.java" />
         <option value="$PROJECT_DIR$/src/gt/tools/preference/annotation/StringPreference.java" />
         <option value="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/BooleanVisitor.java" />
-        <option value="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/GenVisitor.java" />
         <option value="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/FloatVisitor.java" />
         <option value="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/IntVisitor.java" />
         <option value="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/LongVisitor.java" />
         <option value="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/ObjectVisitor.java" />
         <option value="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/StringVisitor.java" />
         <option value="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/PreferenceProcessor.java" />
+        <option value="$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/GenVisitor.java" />
       </list>
     </option>
   </component>
@@ -764,16 +762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/GenVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1188">
-          <caret line="61" column="37" lean-forward="false" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/BooleanVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -860,9 +848,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/PreferenceProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2153">
-          <caret line="114" column="32" lean-forward="false" selection-start-line="114" selection-start-column="32" selection-end-line="114" selection-end-column="32" />
+        <state relative-caret-position="1867">
+          <caret line="101" column="37" lean-forward="true" selection-start-line="101" selection-start-column="37" selection-end-line="101" selection-end-column="37" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gt/tools/preference/annotation/processing/visitors/GenVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1700">
+          <caret line="90" column="88" lean-forward="false" selection-start-line="90" selection-start-column="88" selection-end-line="90" selection-end-column="88" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

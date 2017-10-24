@@ -88,7 +88,7 @@ public abstract class GenVisitor<A> {
         checkType(field);
         String key = getAnnotationKey((A) annotation);
         String pureKey = formatKey(field, key);
-        String prefixedKey = buildPrefKey((A) annotation, key);
+        String prefixedKey = buildPrefKey((A) annotation, "".equals(key) ? pureKey : key);
         checkKey(template.mGetterSetters, pureKey);
         appendGetterSetter(template.mGetterSetters, template.mImports, field, pureKey, prefixedKey,
                 (A) annotation);
