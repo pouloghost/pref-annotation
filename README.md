@@ -9,8 +9,63 @@
 - 生成快速保存整个对象中做FPM的字段的save方法
 
 
-# 使用方法
+# 示例
 
+- 标记类
+```
+@PreferenceAnnotation
+public class Foo implements Serializable {
+
+...
+
+ @SerializedName("floatVal")
+  @FloatPreference(key = "floatVal", def = 0.01f)
+  public float mFloatVal = 0.01f;
+...
+ @SerializedName("boolVal")
+ @BooleanPreference(prefixKey = PREFIX_USER_ID, key = "boolVal")
+ public boolean mBoolVal;
+...
+}
+```
+
+- 生成后的DefaultPreferenceHelper
+```
+...
+public static float getFloatVal(){
+  return sPreferences.getFloat("floatVal", 0.01F);
+}
+public static void setFloatVal(float value){
+  sPreferences.edit().putFloat("getFloatVal", value).apply();
+}
+...
+public static boolean getBooVal(){
+  return sPreferences.getBoolean(PreferenceContext.getPreferenceKeyPrefix("user") + "boolVal", false);
+}
+public static void setBooVal(boolean value){
+  sPreferences.edit().putBoolean(PreferenceContext.getPreferenceKeyPrefix("user") + "boolVal", value).apply();
+}
+...
+public static void save(Foo object){
+  setFloatVal(object.mFloatVal);
+  setBoolVal(object.mBoolVal);
+  //未标记的Field将不会被存储到Preference中
+}
+```
+
+- 使用Helper
+	- put/save
+	```
+	// 仅持久化某值
+	DefaultPreferenceHelper.setBoolVal(true);
+	// 或得到Foo，并持久化全部
+	DefaultPreferenceHelper.save(getFoo());
+	```
+	- get
+	```
+	float val = DefaultPreferenceHelper.getFloatVal();
+	```
+# 使用方法
 ## Gradle集成
 
 1. 下载工程，并当做Module引入
@@ -22,7 +77,7 @@
 
 使用层面，有两类Annotation:
 
-- PreferenceAnnotation 针对类型，表明该class需要
+- PreferenceAnnotation 针对类型，表明该class需要处理
 - TypedPreference，例如BooleanPreference、FloatPreference等 针对field，声明field与Preference的对应关系
 
 ### Step By Step
@@ -64,12 +119,11 @@ PreferenceContext.init(new PreferenceAdapter() {
 });
 
 ```
- 其中
+ - 其中
 	- getPreferenceByName：入参是TypePreference的prefFile。
 	- getPreferenceKeyPrefix：入参是TypePreference的prefixKey，prefixKey代表了前缀的类型，Adapter根据类型返回prefix的真实值，比如userid、sessionid等。
 	- deserialize/serialize：ObjectPreference会将对象序列化成String存入Preference，序列化和反序列化使用这两个方法。
-
-- 	optional，声明包名。包名使用gradle编译参数来声明
+- optional，声明包名。包名使用gradle编译参数来声明
 
 ```
 android {
@@ -105,59 +159,3 @@ afterEvaluate {
 	- remove${formatedKey} 对应SharedPreferences#edit#remove
 	- save() 为每个PreferenceAnnotation标注的类声明一个save方法，方便快速保存。
 - 使用 直接调用对应Helper的对应方法。
-
-### 示例
-
-- 标记类
-```
-@PreferenceAnnotation
-public class Foo implements Serializable {
-
-...
-
- @SerializedName("floatVal")
-  @FloatPreference(key = "floatVal", def = 0.01f)
-  public float mFloatVal = 0.01f;
-...
- @SerializedName("boolVal")
- @BooleanPreference(prefixKey = PREFIX_USER_ID, key = "boolVal")
- public boolean mBoolVal;
-...
-}
-```
-
-- 生成后的DefaultPreferenceHelper
-```
-...
-public static float getFloatVal(){
-  return sPreferences.getFloat("floatVal", 0.01F);
-}
-public static void setFloatVal(float value){
-  sPreferences.edit().putFloat("getFloatVal", value).apply();
-}
-...
-public static boolean getBooVal(){
-  return sPreferences.getBoolean(PreferenceContext.getPreferenceKeyPrefix("user") + "boolVal", false);
-}
-public static void setBooVal(boolean value){
-  sPreferences.edit().putBoolean(PreferenceContext.getPreferenceKeyPrefix("user") + "boolVal", value).apply();
-}
-...
-public static void save(Foo object){
-  setFloatVal(object.mFloatVal);
-  setBoolVal(object.mBoolVal);
-}
-```
-
-- 使用
-	- put/save
-	```
-	// 仅持久化某值
-	DefaultPreferenceHelper.setBoolVal(true);
-	// 或得到Foo，并持久化全部
-	DefaultPreferenceHelper.save(getFoo());
-	```
-	- get
-	```
-	float val = DefaultPreferenceHelper.getFloatVal();
-	```
