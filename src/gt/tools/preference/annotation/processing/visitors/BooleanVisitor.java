@@ -44,4 +44,9 @@ public class BooleanVisitor extends GenVisitor<BooleanPreference> {
     public String[] acceptableFieldTypes() {
         return new String[]{TYPE_BOOLEAN, TYPE_INT};
     }
+
+    @Override
+    public boolean removable(BooleanPreference annotation) {
+        return annotation.removable();
+    }
 }

@@ -14,5 +14,7 @@ public @interface BooleanPreference {
 
     String prefixKey() default "";
 
+    boolean removable() default false;
+
     boolean def() default false;
 }

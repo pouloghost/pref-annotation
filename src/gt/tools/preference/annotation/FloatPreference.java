@@ -14,5 +14,7 @@ public @interface FloatPreference {
 
     String prefixKey() default "";
 
+    boolean removable() default false;
+
     float def() default 0f;
 }

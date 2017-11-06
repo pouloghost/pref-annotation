@@ -36,4 +36,9 @@ public class StringVisitor extends GenVisitor<StringPreference> {
     public String[] acceptableFieldTypes() {
         return new String[]{TYPE_STRING};
     }
+
+    @Override
+    public boolean removable(StringPreference annotation) {
+        return annotation.removable();
+    }
 }

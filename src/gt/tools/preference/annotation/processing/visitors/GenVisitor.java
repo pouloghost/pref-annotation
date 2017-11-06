@@ -96,9 +96,18 @@ public abstract class GenVisitor<A> {
         checkKey(template.mGetterSetters, pureKey);
         appendGetterSetter(template.mGetterSetters, template.mImports, field, pureKey, prefixedKey,
                 (A) annotation);
+        if (removable((A) annotation)) {
+            appendRemove(template.mGetterSetters, pureKey, prefixedKey);
+        }
         if (needSaver) {
             appendSaver(template, root, field, pureKey);
         }
+    }
+
+    private void appendRemove(StringBuilder builder, String key, String prefixedKey) {
+        builder.append("  public static void remove").append(key).append("(){\n")
+                .append("    sPreferences.edit().remove(").append(prefixedKey)
+                .append(").apply();\n  }\n");
     }
 
     private void checkType(Element field) {
@@ -120,4 +129,6 @@ public abstract class GenVisitor<A> {
     public abstract String getPrefixKey(A annotation);
 
     public abstract String[] acceptableFieldTypes();
+
+    public abstract boolean removable(A annotation);
 }

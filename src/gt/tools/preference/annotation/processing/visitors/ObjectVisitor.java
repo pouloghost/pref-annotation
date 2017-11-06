@@ -21,7 +21,7 @@ public class ObjectVisitor extends GenVisitor<ObjectPreference> {
         getterSetter.append("  public static ").append(fieldType.getSimpleName()).append(" get")
                 .append(key).append("(Type clazz){\n")
                 .append("    String value = sPreferences.getString(").append(prefixedKey)
-                .append(", null);\n")
+                .append(", \"").append(annotation.def().replace("\"", "\\\"")).append("\");\n")
                 .append("    if(value == null){\n")
                 .append("      return null;\n")
                 .append("    }\n")
@@ -53,5 +53,10 @@ public class ObjectVisitor extends GenVisitor<ObjectPreference> {
     @Override
     public String[] acceptableFieldTypes() {
         return new String[]{TYPE_OBJECT};
+    }
+
+    @Override
+    public boolean removable(ObjectPreference annotation) {
+        return annotation.removable();
     }
 }

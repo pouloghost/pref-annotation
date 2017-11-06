@@ -34,7 +34,12 @@ public class FloatVisitor extends GenVisitor<FloatPreference> {
 
     @Override
     public String[] acceptableFieldTypes() {
-        return new String[] {TYPE_FLOAT};
+        return new String[]{TYPE_FLOAT};
+    }
+
+    @Override
+    public boolean removable(FloatPreference annotation) {
+        return annotation.removable();
     }
 }
 

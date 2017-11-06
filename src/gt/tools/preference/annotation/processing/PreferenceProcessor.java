@@ -28,8 +28,11 @@ import java.util.Set;
         "gt.tools.preference.annotation.LongPreference"})
 @SupportedSourceVersion(SourceVersion.RELEASE_7)
 public class PreferenceProcessor extends AbstractProcessor {
+    public static final String PACKAGE_NAME = "preferenceHelperPackageName";
+    public static String DEFAULT_PACKAGE = "com.smile.gifshow";
+    public static String DEFAULT_PREFERENCE_NAME = "DefaultPreferenceHelper";
+
     private static final Map<Class<? extends Annotation>, GenVisitor> sVisiters = new HashMap<>();
-    public static final String PACKAGE_NAME = "preferencePackage";
 
     static {
         sVisiters.put(BooleanPreference.class, new BooleanVisitor());
@@ -53,6 +56,9 @@ public class PreferenceProcessor extends AbstractProcessor {
         sMessager = processingEnv.getMessager();
         mPrefs = new HashMap<>();
         mPkgName = processingEnv.getOptions().get(PACKAGE_NAME);
+        if (mPkgName == null || "".equals(mPkgName)) {
+            mPkgName = DEFAULT_PACKAGE;
+        }
     }
 
     @Override
@@ -87,9 +93,12 @@ public class PreferenceProcessor extends AbstractProcessor {
     }
 
     private void gen(TypeElement rootClass, Element field, Annotation annotation, boolean needSaver) {
+        if (annotation == null) {
+            return;
+        }
         GenVisitor visitor = sVisiters.get(annotation.getClass().getInterfaces()[0]);
         String prefName = visitor.getPrefFile(annotation);
-        prefName = "".equals(prefName) ? "DefaultPrefHelper" : prefName;
+        prefName = "".equals(prefName) ? DEFAULT_PREFERENCE_NAME : prefName;
         initPref(prefName);
         mPrefs.get(prefName).accept(visitor, rootClass, field, annotation, needSaver);
     }
@@ -101,30 +110,31 @@ public class PreferenceProcessor extends AbstractProcessor {
                 Writer writer = file.openWriter();
                 writer.write(mPrefs.get(pref).toString(mPkgName));
                 writer.flush();
+                writer.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private void initPref(String prefName) {
-        if (mPrefs.containsKey(prefName)) {
+    private void initPref(String prefFile) {
+        if (mPrefs.containsKey(prefFile)) {
             return;
         }
         StringBuilder whole = new StringBuilder();
-        whole.
-                append("public final class ").append(prefName).append("{\n").
-                append("  public static SharedPreferences sPreferences = (SharedPreferences)ProviderContext.getInstance().get(\"").append(prefName).append("\");\n");
+        whole.append("public final class ").append(prefFile).append("{\n").append(
+                "  public static SharedPreferences sPreferences = (SharedPreferences)PreferenceContext.get(\"")
+                .append(prefFile).append("\");\n");
         PreferenceTemplate template = new PreferenceTemplate(whole.toString());
-        mPrefs.put(prefName, template);
+        mPrefs.put(prefFile, template);
     }
 
     public static void debug(Element e, String msg, Object... args) {
         sMessager.printMessage(Diagnostic.Kind.WARNING, String.format(msg, args), e);
     }
 
-    public static void exception(String s, Element element) {
-        sMessager.printMessage(Diagnostic.Kind.ERROR, s, element);
+    public static void exception(String s, Element e) {
+        sMessager.printMessage(Diagnostic.Kind.ERROR, s, e);
         throw new IllegalArgumentException(s);
     }
 }

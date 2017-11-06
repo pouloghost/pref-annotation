@@ -14,6 +14,8 @@ public @interface LongPreference {
 
     String prefixKey() default "";
 
+    boolean removable() default false;
+
     long def() default 0L;
 }
 

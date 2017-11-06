@@ -34,7 +34,12 @@ public class LongVisitor extends GenVisitor<LongPreference> {
 
     @Override
     public String[] acceptableFieldTypes() {
-        return new String[] {TYPE_LONG};
+        return new String[]{TYPE_LONG};
+    }
+
+    @Override
+    public boolean removable(LongPreference annotation) {
+        return annotation.removable();
     }
 }
 

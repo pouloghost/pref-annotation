@@ -14,4 +14,7 @@ public @interface ObjectPreference {
 
     String prefixKey() default "";
 
+    boolean removable() default false;
+
+    String def() default "";
 }

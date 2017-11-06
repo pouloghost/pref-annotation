@@ -34,6 +34,11 @@ public class IntVisitor extends GenVisitor<IntPreference> {
 
     @Override
     public String[] acceptableFieldTypes() {
-        return new String[]{TYPE_INT};
+        return new String[] {TYPE_INT};
+    }
+
+    @Override
+    public boolean removable(IntPreference annotation) {
+        return annotation.removable();
     }
 }

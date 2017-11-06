@@ -14,5 +14,7 @@ public @interface IntPreference {
 
     String prefixKey() default "";
 
+    boolean removable() default false;
+
     int def() default 0;
 }

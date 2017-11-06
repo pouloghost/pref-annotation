@@ -14,5 +14,7 @@ public @interface StringPreference {
 
     String prefixKey() default "";
 
+    boolean removable() default false;
+
     String def() default "";
 }
