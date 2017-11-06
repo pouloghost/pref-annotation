@@ -8,19 +8,24 @@
 - 是FPM而非OPM，存储的粒度是Field，而非Object
 - 生成快速保存整个对象中做FPM的字段的save方法
 
-#使用方法
-##Gradle集成
+
+# 使用方法
+
+## Gradle集成
 
 1.下载工程，并当做Module引入
 2.在需要使用的其他module下，compile project('pref-annotation')
 
-##使用
-###结构
+## 使用
+
+### 结构
+
 使用层面，有两类Annotation:
 
 - PreferenceAnnotation 针对类型，表明该class需要
 - TypedPreference，例如BooleanPreference、FloatPreference等 针对field，声明field与Preference的对应关系
-###Step By Step
+
+### Step By Step
 
 - 初始化Context，在使用Preference之前，使用PreferenceAdapter的实现初始化PreferenceContext
 
