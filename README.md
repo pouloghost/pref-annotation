@@ -13,8 +13,8 @@
 
 ## Gradle集成
 
-1.下载工程，并当做Module引入
-2.在需要使用的其他module下，compile project('pref-annotation')
+1. 下载工程，并当做Module引入
+2. 在需要使用的其他module下，compile project('pref-annotation')
 
 ## 使用
 
@@ -106,6 +106,58 @@ afterEvaluate {
 	- save() 为每个PreferenceAnnotation标注的类声明一个save方法，方便快速保存。
 - 使用 直接调用对应Helper的对应方法。
 
+### 示例
 
+- 标记类
+```
+@PreferenceAnnotation
+public class Foo implements Serializable {
 
+...
 
+ @SerializedName("floatVal")
+  @FloatPreference(key = "floatVal", def = 0.01f)
+  public float mFloatVal = 0.01f;
+...
+ @SerializedName("boolVal")
+ @BooleanPreference(prefixKey = PREFIX_USER_ID, key = "boolVal")
+ public boolean mBoolVal;
+...
+}
+```
+
+- 生成后的DefaultPreferenceHelper
+```
+...
+public static float getFloatVal(){
+  return sPreferences.getFloat("floatVal", 0.01F);
+}
+public static void setFloatVal(float value){
+  sPreferences.edit().putFloat("getFloatVal", value).apply();
+}
+...
+public static boolean getBooVal(){
+  return sPreferences.getBoolean(PreferenceContext.getPreferenceKeyPrefix("user") + "boolVal", false);
+}
+public static void setBooVal(boolean value){
+  sPreferences.edit().putBoolean(PreferenceContext.getPreferenceKeyPrefix("user") + "boolVal", value).apply();
+}
+...
+public static void save(Foo object){
+  setFloatVal(object.mFloatVal);
+  setBoolVal(object.mBoolVal);
+}
+```
+
+- 使用
+	- put/save
+	```
+	// 仅持久化某值
+	DefaultPreferenceHelper.setBoolVal(true);
+	// 或得到Foo，并持久化全部
+	DefaultPreferenceHelper.save(getFoo());
+	```
+	- get
+	```
+	float val = DefaultPreferenceHelper.getFloatVal();
+	```
